@@ -39,7 +39,7 @@ through year $t-1$. The eight different models are variations of a
 sibling regression model fit on the log scale with time-varying
 intercept and slope:
 
-![](imgs/DLMeq.PNG)
+![](man/imgs/DLMeq.PNG)
 
 <!-- $$ -->
 <!-- \left\{\begin{aligned} -->
@@ -84,7 +84,7 @@ model weights are calculated for each model $m$ in the set
 <!-- w_m=\frac{e^{-0.5\left(\mathrm{AIC}_m-\mathrm{AIC}_{\min }\right)}}{\sum_{i \in \mathcal{M}} e^{-0.5\left(\mathrm{AIC}_i-\mathrm{AIC}_{\min }\right)}}, -->
 <!-- $$ -->
 
-![](imgs/AIC%20wt.PNG)
+![](man/imgs/AIC%20wt.PNG)
 
 Alternatively, the user may choose to weight models based on their
 observed performance $\mathrm{Perf}$ in previous years measured by the
@@ -94,7 +94,7 @@ reciprocal of mean absolute percent error or root mean square error.
 <!-- w_m=\frac{\mathrm{Perf}_m^{-1}}{\sum_{i \in \mathcal{M}} \mathrm{Perf}_m^{-1}}, -->
 <!-- $$ -->
 
-![](imgs/perf%20wt.PNG)
+![](man/imgs/perf%20wt.PNG)
 
 Giovanni Petris (2010). An R Package for Dynamic Linear Models. Journal
 of Statistical Software, 36(12), 1-16. URL

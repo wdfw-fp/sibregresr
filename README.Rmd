@@ -45,7 +45,7 @@ library(sibregresr)
 
 The first step in forecasting the returns of a given stock $y_{a,t}$ of age $a$ in year $t$ is to fit eight different models to observed returns through year $t-1$. The eight different models are variations of a sibling regression model fit on the log scale with time-varying intercept and slope:
 
-![](imgs/DLMeq.PNG)
+![](man/imgs/DLMeq.PNG)
 
 <!-- $$ -->
 
@@ -78,7 +78,7 @@ Once the eight models have been fit, each is used to make a prediction of return
 
 <!-- $$ -->
 
-![](imgs/AIC%20wt.PNG)
+![](man/imgs/AIC%20wt.PNG)
 
 Alternatively, the user may choose to weight models based on their observed performance $\mathrm{Perf}$ in previous years measured by the reciprocal of mean absolute percent error or root mean square error.
 
@@ -88,7 +88,7 @@ Alternatively, the user may choose to weight models based on their observed perf
 
 <!-- $$ -->
 
-![](imgs/perf%20wt.PNG)
+![](man/imgs/perf%20wt.PNG)
 
 Giovanni Petris (2010). An R Package for Dynamic Linear Models. Journal of Statistical Software, 36(12), 1-16. URL <https://www.jstatsoft.org/v36/i12/>.
 
