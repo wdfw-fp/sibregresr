@@ -1,13 +1,12 @@
 Package: sibregresr
 Title: Sibling Regression Salmon Forecasting
 Version: 0.0.0.9000
-Authors@R: c()
+Authors@R: c(
     person("Ben", "Cox", , "Ben.Cox@dfw.wa.gov", role = c("aut", "cre"),
            comment = c(ORCID = "0000-0001-5073-8052")),
         person("Mark", "Sorel", , "mark.sorel@dfw.wa.gov", role = c("aut"),
            comment = c(ORCID = "0000-0001-5073-8052"))
            )
-           
 Description: This package generates salmon return forecasts based on ensembles of sibling regression dynamic linear models.
 License: Apache License (>= 2)
 Encoding: UTF-8
