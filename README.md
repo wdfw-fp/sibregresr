@@ -91,7 +91,7 @@ observed performance $\mathrm{Perf}$ in previous years measured by the
 reciprocal of mean absolute percent error or root mean square error.
 
 <!-- $$ -->
-<!-- w_m=\frac{\mathrm{Perf}_m^{-1}}{\sum_{i \in \mathcal{M}} \mathrm{Perf}_m^{-1}}, -->
+<!-- w_m=\frac{\mathrm{Perf}_m^{-1}}{\sum_{i \in \mathcal{M}} \mathrm{Perf}_i^{-1}}, -->
 <!-- $$ -->
 
 ![](man/imgs/perf%20wt.PNG)
