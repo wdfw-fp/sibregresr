@@ -60,10 +60,15 @@ intercept prior to the first year) these equations define the “full”
 sibling regression models.
 
 The seven other models are simplified versions of this full model
-where: 1) the slope is assumed to constant through time (i.e.,
-$w_{\beta, t}=0$); 2) the intercept is assumed to be constant through
-time; 3) the slope and intercept are assumed to be constant through
-time; 4) the intercept is assumed to be zero (i.e., $\alpha_t=0$);  
+where: 
+
+1) the slope is assumed to constant through time (i.e.,
+$w_{\beta, t}=0$);
+2) the intercept is assumed to be constant through
+time;
+3) the slope and intercept are assumed to be constant through
+time;
+4) the intercept is assumed to be zero (i.e., $\alpha_t=0$);  
 5) the intercept is assumed to be zero and the slope is assumed to be
 constant through time;  
 6) the slope is assumed to be zero; and  
