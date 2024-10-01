@@ -1,4 +1,33 @@
-#  functions to build DLM models without environmental covariates ####
+#' functions to build DLM models without environmental covariates
+#'
+#' @param include vector of names of models to include. Default is all options
+#'
+#' @return
+#'
+#' @details
+#' Model options are:
+#'
+#' - constLM --	Sibling regression with constant slope and intercept.
+#' - tvInt --	Sibling regression with  time-varying intercept.
+#' - tvSlope --	Sibling regression with time-varying slope.
+#' - tvIntSlope --	Sibling regression with time-varying slope and intercept.
+#' - tvCRzeroInt --	Time varying "cohort ratio" model. Time varying slope, Intercept=0.
+#' - constCRzeroInt --	Constant "cohort ratio" model. Constant slope, Intercept=0.
+#' - tvIntOnly --	Time-varying Intercept-only model. Random walk on return, no sibling predictor.
+#' - constIntOnly --	Constant Intercept-only model. Long-term average, no sibling predictor.
+#'
+#' @examples
+#'
+mod_funs<-function(include=c(
+  "constIntOnly",
+  "tvIntOnly",
+  "tvIntSlope",
+  "tvSlope",
+  "constLM",
+  "tvCRzeroInt",
+  "constCRzeroInt",
+  "tvInt"
+)){
 
 #   # Constant Intercept-only model
 constIntOnly <- function(parm,x.mat){
@@ -49,3 +78,18 @@ tvInt <- function(parm, x.mat){
 }
 
 
+all_funs<-list(
+  "constIntOnly" = constIntOnly,
+  "tvIntOnly" = tvIntOnly,
+  "tvIntSlope" = tvIntSlope,
+  "tvSlope" = tvSlope,
+  "constLM" = constLM,
+  "tvCRzeroInt" = tvCRzeroInt,
+  "constCRzeroInt" = constCRzeroInt,
+  "tvInt" = tvInt
+)
+
+all_funs[include]
+
+
+}

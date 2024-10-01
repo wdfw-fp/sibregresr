@@ -17,4 +17,6 @@ BugReports: https://github.com/wdfw-fp/sibregresr/issues
 Imports: 
     dlm,
     dplyr,
-    tidyr
+    purrr,
+    tidyr,
+    zoo
