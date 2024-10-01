@@ -2,20 +2,51 @@
 % Please edit documentation in R/performance_weights.R
 \name{performance_weights}
 \alias{performance_weights}
-\title{Calculated weighted average preds}
+\title{Calculated weighted average forecasts}
 \usage{
-performance_weights(fits)
+performance_weights(fits, n_years = 15)
 }
 \arguments{
 \item{fits}{data frame returned by \code{fit_mods} function}
+
+\item{n_years}{maximum number of years of predictions to include in performance metrics. Set to infinity to use a stretching window.}
 }
 \value{
-a data frame with predicitons from component models and weighted average models based on AICc, MAPE, and RMSE weights.
+a data frame with predictions from component models and weighted average models based on AICc, MAPE, and RMSE weights.
 }
 \description{
-Calculated weighted average preds
+Calculated weighted average forecasts
 }
 \details{
-AICc weights are calculated as exp(-.5\emph{deltaAICc) / sum(exp(-.5}deltaAICc))
-MAPE and RMSE weights are calculated as, for example, Mape^-1 / sum(mape^-1)
+AICc weights are calculated as:
+$exp(-.5 deltaAICc) / sum(exp(-.5 deltaAICc))$
+MAPE and RMSE weights are calculated as, for example:
+MAPE^-1 / sum(MAPE^-1)
+\itemize{
+\item \emph{n_wts} = the number of years of forecasts and observations that were used to generate MAPE and RMSE weights for ensemble forecasts.
+\item Individual year metrics:
+\itemize{
+\item \emph{Er} = forecast error
+\item \emph{AEr} = absolute forecast error
+\item \emph{PE}= percent errr,
+\item \emph{APE} = absolute percent error
+\item \emph{SQE} = square error
+\item \emph{logQ} = log (forecast/observed)- AlogQ = absolute logQ
+}
+\item Multi-year bias metrics
+\itemize{
+\item \emph{MEr} = mean error
+\item \emph{MPE} = mean percent error
+\item \emph{MeanlogQ} = mean logQ
+}
+\item Multi-year precision metrics
+\itemize{
+\item \emph{RMSE} = root mean square error
+\item \emph{MAer} = mean absolute error
+\item \emph{MAPE} = mean absolute percent error
+\item \emph{MeanSA} = mean absolute logQ
+}
+\item \emph{log_sd} = standard deviation from observed in log space for a the last \emph{n_years} of forecasts (i.e., (sqrt(sum(logQ^2)/n)))
+\item \emph{n_sd} = the number of years that were used to calculate sample standard deviation from observed
+}
 }

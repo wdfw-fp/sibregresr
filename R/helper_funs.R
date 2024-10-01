@@ -140,3 +140,36 @@ stretching_mean <- function(x, window_size = Inf) {
   # Combine the stretching and rolling parts
   c(stretching_part, rolling_part[(window_size + 1):n])
 }
+
+
+#' Stretching sample SD
+#'
+#' @param x a vector of errors
+#' @param window_size the maximum number of values to include in mean
+#' @param sample_sd boolean whether to subtract one from denominator so as to calculate a sample standard deviation. I think this would only be approporiate if bias correction were being applied.
+#'
+#' @return
+#'
+#' @examples
+#' vec <- 1:10
+#' stretching_samp_sd(vec, window_size = 5)
+stretching_samp_sd <- function(x, window_size = Inf, sample_sd=FALSE) {
+  n <- length(x)
+
+  # If window_size is greater than or equal to the length of x, use cumulative mean
+  if (window_size >= n) {
+    (return(sqrt(cumsum(x^2) / seq_along(x)-sample_sd)))
+  }
+
+  # Calculate the stretching mean up to the window size
+  stretching_part <-sqrt( cumsum((x[1:window_size])^2) / (seq_along(x[1:window_size])-sample_sd))
+
+  # Apply rolling mean for the rest of the values
+  rolling_part <- sapply((window_size + 1):n, function(i) {
+    sqrt(sum((x[(i - window_size + 1):i])^2)/(window_size-sample_sd))
+  })
+
+
+  # Combine the stretching and rolling parts
+  c(stretching_part, rolling_part)
+}
